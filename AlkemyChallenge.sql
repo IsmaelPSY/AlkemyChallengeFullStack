@@ -1,5 +1,5 @@
 CREATE TABLE "users" (
-  "id" serial PRIMARY KEY,
+  "id" uuid PRIMARY KEY,
   "user_name" varchar NOT NULL,
   "login" varchar NOT NULL,
   "email" varchar NOT NULL,
@@ -7,9 +7,9 @@ CREATE TABLE "users" (
 );
 
 CREATE TABLE "operation" (
-  "id" serial PRIMARY KEY,
+  "id" uuid PRIMARY KEY,
   "isue" varchar,
-  "user_id" int NOT NULL,
+  "user_id" uuid NOT NULL,
   "amount" money NOT NULL,
   "transaction_type" int NOT NULL,
   "transaction_category" int NOT NULL,
@@ -17,12 +17,12 @@ CREATE TABLE "operation" (
 );
 
 CREATE TABLE "operation_types" (
-  "id" serial PRIMARY KEY,
+  "id" uuid PRIMARY KEY,
   "name" varchar NOT NULL
 );
 
 CREATE TABLE "operation_category" (
-  "id" serial PRIMARY KEY,
+  "id" uuid PRIMARY KEY,
   "name" varchar NOT NULL
 );
 
