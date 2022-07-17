@@ -11,8 +11,8 @@ CREATE TABLE "operation" (
   "isue" varchar,
   "user_id" uuid NOT NULL,
   "amount" money NOT NULL,
-  "transaction_type" int NOT NULL,
-  "transaction_category" int NOT NULL,
+  "transaction_type" uuid NOT NULL,
+  "transaction_category" uuid NOT NULL,
   "transaction_date" timestamp DEFAULT 'now()'
 );
 
@@ -25,8 +25,6 @@ CREATE TABLE "operation_category" (
   "id" uuid PRIMARY KEY,
   "name" varchar NOT NULL
 );
-
-COMMENT ON COLUMN "users"."login" IS 'hola';
 
 ALTER TABLE "operation" ADD FOREIGN KEY ("transaction_category") REFERENCES "operation_category" ("id");
 
