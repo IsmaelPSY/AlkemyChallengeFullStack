@@ -26,16 +26,12 @@ using Express.
   -: # Method: POST
 - []: # Route: /api/v1/auth/signin
   -: # Method: POST
-- []: # Route: /api/v1/users/
-  -: # Method: GET
 
 
 ## privateRoutes
 
 ### usersRouter
 
-- []: # Route: /api/v1/users/my-profile
-  -: # Method: GET
 - []: # Route: /api/v1/users/:uuid
   -: # Method: GET, PUT, DELETE 
   
