@@ -4,16 +4,17 @@ const http = require('./operations.http')
 router
   .route('/')
   .get(
-    http.getAllMyOperations
+    http.getAllMyOperations //getting all operations by user id
   )
   .post(
     http.postOperation
   );
 
+
 router
   .route('/:uuid')
   .get(
-    http.getOperationById
+    http.getOperationById //geting operation by its id
   )
   .put(
     http.putOperation

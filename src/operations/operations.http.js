@@ -2,8 +2,8 @@ const controllers = require('./operations.controller')
 const { toPromise } = require('../utils/toPromise')
 
 const getAllMyOperations = async (req,res) => {
-  const user_id = req.params.uuid;
-  const [operations,err] = await toPromise(controllers.getAllMyOperations(user_id))
+  const { user } = req.query
+  const [operations,err] = await toPromise(controllers.getAllMyOperations(user))
   if(err){ 
     return res.status(400).json({message: 'Error'})
 }
