@@ -7,11 +7,12 @@ const models = initModels(sequelize);
 const registerUser = async (data) => {
     const hashedPassword = crypto.hashPassword(data.password);
     const userId = uuid.v4();
-    const newUser = models.users.create({
+    const newUser = await models.users.create({
         id: userId,
         ...data,
         password: hashedPassword
     })
+    console.log('nuevo',newUser,'nuevo usuario')
     return {
         message: `User created succesfully with the id: ${newUser.id}`,
         user: newUser,
