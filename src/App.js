@@ -5,7 +5,7 @@ const config = require("./config");
 
 // Routes
 const usersRoutes = require("./users/users.routes").router
-
+const operationsRoutes = require('./operations/operations.routes').router
 
 // Init express app
 const app = express();
@@ -26,7 +26,7 @@ else app.use(morgan("combined"));
 // Endpoints
 app.use('/api/v1/users', usersRoutes)
 // app.use('/api/v1/auth');
-// app.use('/api/v1/operations');
+app.use('/api/v1/operations',operationsRoutes);
 
 
 app.listen(config.port,()=>{
