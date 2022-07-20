@@ -5,6 +5,7 @@ const crypto = require('../utils/crypto');
 const models = initModels(sequelize);
 
 const registerUser = async (data) => {
+    console.log(data)
     const hashedPassword = crypto.hashPassword(data.password);
     const userId = uuid.v4();
     const newUser = await models.users.create({

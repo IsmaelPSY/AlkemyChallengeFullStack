@@ -1,8 +1,7 @@
 CREATE TABLE "users" (
   "id" uuid PRIMARY KEY,
   "user_name" varchar NOT NULL,
-  "login" varchar NOT NULL,
-  "email" varchar NOT NULL,
+  "email" varchar UNIQUE NOT NULL,
   "password" varchar NOT NULL
 );
 

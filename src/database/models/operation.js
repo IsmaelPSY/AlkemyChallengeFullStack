@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
     transaction_date: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: "2022-07-17 12:50:38.198379"
+      defaultValue: "2022-07-19 21:21:47.449331"
     }
   }, {
     sequelize,

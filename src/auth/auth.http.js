@@ -40,7 +40,7 @@ const loginUser = async (req,res) => {
     },
     config.jwtSecret
   );
-  res.status(200).json({ token: token });
+  res.status(200).json({ token: token , user: user.id});
 }
 
 module.exports = {

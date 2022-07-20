@@ -1,26 +1,33 @@
 const router = require('express').Router()
 const http = require('./operations.http')
+const passport = require('passport');
+require('../utils/auth')(passport);
 
 router
   .route('/')
   .get(
-    http.getAllMyOperations //getting all operations by user id
+        passport.authenticate('jwt',{ session: false }),
+        http.getAllMyOperations //getting all operations by user id
   )
   .post(
-    http.postOperation
+        passport.authenticate('jwt',{ session: false }),
+        http.postOperation
   );
 
 
 router
   .route('/:uuid')
   .get(
-    http.getOperationById //geting operation by its id
+        passport.authenticate('jwt',{ session: false }),
+        http.getOperationById //geting operation by its id
   )
   .put(
-    http.putOperation
+        passport.authenticate('jwt',{ session: false }),
+        http.putOperation
   )
   .delete(
-    http.deleteOperation
+        passport.authenticate('jwt',{ session: false }),
+        http.deleteOperation
   );
 
 

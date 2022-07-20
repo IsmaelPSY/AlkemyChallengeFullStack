@@ -10,13 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    login: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: "users_email_key"
     },
     password: {
       type: DataTypes.STRING,
@@ -28,6 +25,13 @@ module.exports = function(sequelize, DataTypes) {
     schema: 'public',
     timestamps: false,
     indexes: [
+      {
+        name: "users_email_key",
+        unique: true,
+        fields: [
+          { name: "email" },
+        ]
+      },
       {
         name: "users_pkey",
         unique: true,
