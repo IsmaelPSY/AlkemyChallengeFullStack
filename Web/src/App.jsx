@@ -1,25 +1,26 @@
-import React from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import MyProfile from './pages/Private/MyProfile/MyProfile';
-import Operations from './pages/Private/Operations/Operations';
-import Landing from './pages/Public/Lading/Landing';
-import Login from './pages/Public/Login/Login';
-import Singin from './pages/Public/Singin/Singin';
+import { useState } from 'react'
+import './styles/app.css'
+import { Route, Routes } from 'react-router-dom'
+import Landing from './pages/Public/Lading/Landing'
+import Login from './pages/Public/Login/Login'
+import Singin from './pages/Public/Singin/Singin'
+import MyProfile from './pages/Private/MyProfile/MyProfile'
+import Operations from './pages/Private/Operations/Operations'
 
-const App = () =>{
-    return (
-    <BrowserRouter>
-            <Switch>
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <Routes>
               {/* PUBLIC ROUTES */}
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/singin" component={Singin} />
+              <Route exact path="/" element={<Landing/>} />
+              <Route exact path="/login" element={<Login/>} />
+              <Route exact path="/singin" element={<Singin/>} />
               {/* PRIVATE ROUTES */}
-              <Route exact path="/users/:uuid" component={MyProfile} />
-              <Route exact path="/operations" component={Operations} />
-            </Switch>
-        </BrowserRouter>
-    );
+              <Route exact path="/users/:uuid" element={<MyProfile/>} />
+              <Route exact path="/operations" element={<Operations/>} />
+    </Routes>
+  )
 }
 
-export default App;
+export default App
