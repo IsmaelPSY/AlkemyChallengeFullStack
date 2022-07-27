@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const URL = 'localhost:8000/api/v1'
+const URL = 'http://localhost:8000/api/v1'
 
 const getConfig = () => ({
     headers: {
@@ -9,12 +9,13 @@ const getConfig = () => ({
 })
 
 export const loginUser = async (data) => {
-    const req = await axios.post(`${URL}/login/`, data)
+    const req = await axios.post(`${URL}/auth/login`, data)
     return req.data
 }
 
 export const createUser = async (data) => {
-    const req = await axios.post(`${URL}/login/`, data)
+    console.log(data)
+    const req = await axios.post(`${URL}/auth/singin`, data)
     return req.data
 }
 
